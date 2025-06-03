@@ -4,15 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chatbot</title>
+  <title>MAB Bot</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='assets/MAB_Logo.png') }}">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body style="background-image: url('{{ url_for('static', filename='assets/bg.png') }}');">
 
   <!-- Chat Button -->
-  <button onclick="toggleChat()"
-    class="fixed bottom-4 right-4 inline-flex items-center justify-center text-sm font-medium border rounded-full w-16 h-16 bg-black hover:bg-gray-700 border-gray-200 text-white z-50">
+ <button onclick="toggleChat()"
+  class="fixed bottom-4 right-4 inline-flex items-center justify-center text-sm font-medium border rounded-full w-16 h-16 bg-[#A32638] hover:bg-[#8B0F23] border-gray-200 text-white z-50">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path>
@@ -26,7 +27,7 @@
   <!-- Header -->
 <div class="flex justify-between items-start pb-4 border-b border-gray-300 mb-4">
   <div>
-    <h2 class="font-semibold text-xl text-gray-900">Chatbot</h2>
+    <h2 class="font-semibold text-xl text-gray-900">MAB Bot</h2>
   </div>
   <div class="flex space-x-5 mt-1">
     <!-- Minimize-->
@@ -53,8 +54,8 @@
         class="flex h-10 w-full rounded-md border border-[#e5e7eb] px-3 py-2 text-sm placeholder-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#9ca3af] text-[#030712]"
         placeholder="Type your message" />
       <button
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium text-white bg-black hover:bg-gray-800 h-10 px-4 py-2"
-        type="submit">Send</button>
+      class="inline-flex items-center justify-center rounded-md text-sm font-medium text-white bg-[#A32638] hover:bg-[#8B0F23] h-10 px-4 py-2"
+      type="submit">Send</button>
     </form>
   </div>
 
@@ -81,7 +82,7 @@
     .replace(/\n/g, '<br>')                              // newline to <br>
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-    const icon = sender === 'MABBankBot'
+    const icon = sender === 'MAB Bot'
   ? `<img src="/static/assets/MAB_Logo.png" class="w-6 h-6 rounded-full" />`
   : `<svg stroke="none" fill="black" viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -119,9 +120,9 @@
 
       const data = await response.json();
       const aiResponse = data.response || 'Sorry, something went wrong.';
-      appendMessage('MABBankBot', aiResponse);
+      appendMessage('MAB Bot', aiResponse);
     } catch (error) {
-      appendMessage('MABBankBot', 'Error connecting to the server.');
+      appendMessage('MAB Bot', 'Error connecting to the server.');
     }
   });
 </script>
