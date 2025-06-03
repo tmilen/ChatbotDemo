@@ -66,7 +66,7 @@ def create_app():
 
         #leave types and their descriptions
         leave_types = {
-            "pl": " **Privilege Leave (PL) / Earned Leave (EL) / Annual Leave (AL)**\nThis is earned based on the number of days worked (typically 20 days per year). It is used for personal matters such as vacations or festivals. This leave can be carried forward and encashed.",
+            "el": " **Privilege Leave (PL) / Earned Leave (EL) / Annual Leave (AL)**\nThis is earned based on the number of days worked (typically 20 days per year). It is used for personal matters such as vacations or festivals. This leave can be carried forward and encashed.",
             "cl": " **Casual Leave (CL)**\nFor urgent/personal matters. Typically allowed for 1-2 days, with prior employer approval. Not always eligible for carry forward.",
             "sl": " **Sick Leave (SL)**\nTaken when an employee is ill or injured. Often requires a medical certificate if it exceeds 2-3 days. In some regions, CL and SL may be merged.",
             "ml": " **Maternity Leave (ML)**\nUp to 26 weeks for eligible women who have worked for at least 80 days in the past 12 months. Covers childbirth, miscarriage, and related medical conditions. May require medical proof.",
