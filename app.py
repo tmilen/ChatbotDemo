@@ -59,6 +59,7 @@ def create_app():
         intent_name = req.get("queryResult", {}).get("intent", {}).get("displayName", "").lower()
         name = req.get("queryResult", {}).get("parameters", {}).get("employee_name", "")
         leave_type = req.get("queryResult", {}).get("parameters", {}).get("leave_type", "").lower()
+
         
         # Default fallback response
         response_text = "I'm sorry, I couldn't find information about that service."
@@ -86,7 +87,6 @@ def create_app():
             
         elif intent_name == "leaveinfotypespecific":
             
-
             leave_info = get_leave_balance(name, leave_type.upper())
             desc = leave_types.get(leave_type, f"**{leave_type.upper()}** leave information not available.")
 
@@ -112,7 +112,7 @@ def create_app():
                 if leave_type:
                     leave_info = get_leave_balance(name, leave_type.upper())
                     if leave_info:
-                        desc = leave_types.get(leave_type.lower(), f"**{leave_type.upper()}** leave info not available.")
+                        desc = leave_types.get(leave_type.lower(), f"**{leave_type}** leave info not available.")
                         response_text = (
                             f"{desc}\n\n"
                             f"**{name}'s {leave_type.upper()} Leave Usage**:\n"
@@ -121,7 +121,7 @@ def create_app():
                             f"- Remaining: {leave_info['remaining_days']} days"
                         )
                     else:
-                        response_text = f"No {leave_type.upper()} leave record found for {name}."
+                        response_text = f"No {leave_type} leave record found for {name}."
                 else:
                     leave_records = get_all_leaves(name)
                     if leave_records:
